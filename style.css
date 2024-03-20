@@ -12,6 +12,7 @@
 body {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -19,19 +20,23 @@ body {
 #container {
     display: flex;
     flex-wrap: wrap;
-    width: 514px;
-    height: 514px;
+    width: 702px;
+    height: 702px;
     border: 1px solid blue;
 }
 
-div {
+#container div {
     border: 1px solid red;
-    width: 32px;
-    height: 32px;
 }
 
 #container div:hover {
     background-color: #ccc;
+}
+
+#colorChoice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* #colorPicker {
