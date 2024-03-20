@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 514px;
+    height: 514px;
+    border: 1px solid blue;
+}
+
+div {
+    border: 1px solid red;
+    width: 32px;
+    height: 32px;
+}
+
+#container div:hover {
+    background-color: #ccc;
+}
