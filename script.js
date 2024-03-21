@@ -2,6 +2,7 @@ const gridContainer = document.querySelector("#container");
 const colorPicker = document.querySelector("#colorPicker");
 const gridSizer = document.querySelector("#gridSizer");
 const gridEraser = document.querySelector("#gridEraser");
+const gridLines = document.querySelector("#gridLines");
 const CONTAINER_SIZE = 700;
 let isMouseDown = false;
 let isRightMouseDown = false;
@@ -30,6 +31,10 @@ gridSizer.addEventListener("click", () => {
 
 gridEraser.addEventListener("click", () => {
     eraseGrid();
+})
+
+gridLines.addEventListener("click", () => {
+    toggleGridLines();
 })
 
 function createGrid(gridSize) {
@@ -84,7 +89,31 @@ function removeGrid() {
     }
 }
 
+function toggleGridLines() {
+    const gridSquares = document.querySelectorAll("#container div");
+    
+    for (const gridSquare of gridSquares) {
+        if (gridSquare.style["border"] === "1px solid red") {
+            gridSquare.style["border"] = null;
+        }
+        else {
+            gridSquare.style["border"] = "1px solid red";
+        }
+    }
+}
 
-
-
-
+async function downloadUsingFetch() {
+    const image = await fetch(IMG_URL);
+    const imageBlog = await image.blob();
+    const imageURL = URL.createObjectURL(imageBlog);
+  
+    const anchor = document.createElement("a");
+    anchor.href = imageURL;
+    anchor.download = FILE_NAME;
+  
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  
+    URL.revokeObjectURL(imageURL);
+  }
