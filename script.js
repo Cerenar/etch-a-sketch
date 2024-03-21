@@ -101,19 +101,3 @@ function toggleGridLines() {
         }
     }
 }
-
-async function downloadUsingFetch() {
-    const image = await fetch(IMG_URL);
-    const imageBlog = await image.blob();
-    const imageURL = URL.createObjectURL(imageBlog);
-  
-    const anchor = document.createElement("a");
-    anchor.href = imageURL;
-    anchor.download = FILE_NAME;
-  
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-  
-    URL.revokeObjectURL(imageURL);
-  }
